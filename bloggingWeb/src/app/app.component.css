@@ -1,0 +1,13 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .example-icon {
+    padding: 8px;
+    
+  }
+  
+  .favorite-icon {
+    color: #FF4081; 
+  }
+  

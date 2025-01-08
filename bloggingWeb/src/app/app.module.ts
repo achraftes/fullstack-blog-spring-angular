@@ -1,0 +1,45 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AngularMaterialModule } from './AngularMaterialModule';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { MatChipsModule } from '@angular/material/chips';
+import { RouterModule } from '@angular/router';
+// import { HttpClientModule } from '@angular/common/http';
+  
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    CreatePostComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatIconModule,
+    MatButtonModule,
+    MatChipsModule,
+    RouterModule
+    // HttpClientModule
+
+        
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
