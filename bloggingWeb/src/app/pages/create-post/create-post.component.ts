@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   templateUrl: './create-post.component.html',
-  styleUrl: './create-post.component.css'
+  styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent {
   
@@ -35,7 +35,7 @@ export class CreatePostComponent {
     private router: Router,
     private snackBar: MatSnackBar,){}
 
-    ngOnInit(){
+    ngOnInit():void{
       this.postForm = this.fb.group({
         name:[null, Validators.required],
         content:[null,[ Validators.required, Validators.minLength(5000)]],
