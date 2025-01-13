@@ -15,13 +15,15 @@ import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule, } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { PostService } from './service/post.service';
+
 
   
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreatePostComponent
+    CreatePostComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
 
         
   ],
-  providers: [],
+  providers: [PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

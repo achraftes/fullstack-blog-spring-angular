@@ -6,7 +6,6 @@ const routes: Routes = [
   { path: 'create-post', component: CreatePostComponent }, 
   
   
-  
 ];
 
 @NgModule({

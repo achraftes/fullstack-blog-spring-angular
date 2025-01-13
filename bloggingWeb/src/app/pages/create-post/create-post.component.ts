@@ -10,6 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostService } from '../../service/post.service';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { NgFor } from '@angular/common';
 
 
 @Component({
@@ -22,13 +25,20 @@ import { PostService } from '../../service/post.service';
     MatIconModule,
     MatButtonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    NgFor,
+    MatChipsModule,
+    HttpClientModule
   ],
+
+  providers: [PostService],
   templateUrl: './create-post.component.html',
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent {
-  
+
+ 
   postForm!: FormGroup;
   tags:string[] = [];
 
@@ -36,6 +46,9 @@ export class CreatePostComponent {
     private router: Router,
     private snackBar: MatSnackBar,
     private postService:PostService){}
+
+   
+
 
     ngOnInit():void{
       this.postForm = this.fb.group({
