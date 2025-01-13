@@ -14,7 +14,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule, } from '@angular/router';
-// import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
   
 
 @NgModule({
@@ -34,9 +35,10 @@ import { RouterModule, } from '@angular/router';
     MatButtonModule,
     MatChipsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
     
-    // HttpClientModule
+   
 
         
   ],

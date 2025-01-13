@@ -9,6 +9,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostService } from '../../service/post.service';
 
 
 @Component({
@@ -33,7 +34,8 @@ export class CreatePostComponent {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private snackBar: MatSnackBar,){}
+    private snackBar: MatSnackBar,
+    private postService:PostService){}
 
     ngOnInit():void{
       this.postForm = this.fb.group({
@@ -60,5 +62,19 @@ export class CreatePostComponent {
       if(index>=0){
         this.tags.splice(index,1);
       }
+    }
+
+
+    createPost(){
+      const data= this.postForm.value;
+      data.tags = this.tags;
+
+      this.postService.createNewPost(data).subscribe(res=>{
+        this.snackBar.open("Post Created Successfully !!!", "ok");
+          this.router.navigateByUrl("/");
+      }, error=>{
+        this.snackBar.open("Something Went Wrong!!!","ok")
+
+      })
     }
 }
