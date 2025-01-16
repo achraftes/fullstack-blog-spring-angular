@@ -82,12 +82,14 @@ export class CreatePostComponent {
       const data= this.postForm.value;
       data.tags = this.tags;
 
-      this.postService.createNewPost(data).subscribe(res=>{
+      console.log("Data sent to server:", data);
+
+      this.postService.createNewPost(data).subscribe((res)=>{
         this.snackBar.open("Post Created Successfully !!!", "ok");
           this.router.navigateByUrl("/");
-      }, error=>{
-        this.snackBar.open("Something Went Wrong!!!","ok")
+      }, (error)=>{
+        this.snackBar.open("Something Went Wrong!!!","ok");
 
-      })
+      });
     }
 }
