@@ -23,8 +23,8 @@ public class PostController {
     @PostMapping
     public ResponseEntity<?> createPost(@RequestBody Post post){
         try {
-            Post creaPost = postService.savePost(post);
-            return ResponseEntity.status(HttpStatus.CREATED).body(creaPost);
+            Post createPost = postService.savePost(post);
+            return ResponseEntity.status(HttpStatus.CREATED).body(createPost);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
