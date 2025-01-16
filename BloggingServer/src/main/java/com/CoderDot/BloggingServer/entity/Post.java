@@ -23,7 +23,7 @@ private long id;
 private String name;
 
 
-@Column(length = 5000)
+@Column(name = "content")
 
 private String content;
 

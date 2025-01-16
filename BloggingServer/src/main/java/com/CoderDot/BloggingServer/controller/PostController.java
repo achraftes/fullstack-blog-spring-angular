@@ -1,6 +1,7 @@
 package com.CoderDot.BloggingServer.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,18 +17,19 @@ import com.CoderDot.BloggingServer.service.PostService;
 @RequestMapping("/api/posts")
 @CrossOrigin(origins = "*")
 public class PostController {
+    
     @Autowired
     private PostService postService;
-
-
-    @PostMapping
-    public ResponseEntity<?> createPost(@RequestBody Post post){
-        try {
-            Post createPost = postService.savePost(post);
-            return ResponseEntity.status(HttpStatus.CREATED).body(createPost);
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    
+   @PostMapping("/api/posts")
+public ResponseEntity<Post> createPost(@RequestBody Post post) {
+    try {
+        Post savedPost = postService.savePost(post);
+        return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
+    } catch (DataIntegrityViolationException e) {
+        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+    } catch (Exception e) {
+        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+}
 }
