@@ -23,8 +23,7 @@ private long id;
 private String name;
 
 
-@Column(name = "content")
-
+@Column(columnDefinition = "TEXT")
 private String content;
 
 private String postedBy;

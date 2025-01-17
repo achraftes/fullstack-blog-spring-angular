@@ -5,6 +5,7 @@ import com.CoderDot.BloggingServer.repository.PostRepository;
 
 import java.sql.Date;
 import java.util.Calendar;
+// import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,4 +23,9 @@ public class PostServiceImpl implements PostService {
 
         return postRepository.save(post);
     }
+
+
+    // public List<Post> getAllPosts(){
+    //     return postRepository.findAll();
+    // }
 }

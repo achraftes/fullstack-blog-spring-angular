@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,19 +18,29 @@ import com.CoderDot.BloggingServer.service.PostService;
 @RequestMapping("/api/posts")
 @CrossOrigin(origins = "*")
 public class PostController {
-    
+
     @Autowired
     private PostService postService;
-    
-   @PostMapping("/api/posts")
-public ResponseEntity<Post> createPost(@RequestBody Post post) {
-    try {
-        Post savedPost = postService.savePost(post);
-        return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
-    } catch (DataIntegrityViolationException e) {
-        return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-    } catch (Exception e) {
-        return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+
+    @PostMapping(
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<Post> createPost(@RequestBody Post post) {
+        try {
+            if (post == null) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+            Post savedPost = postService.savePost(post);
+            if (savedPost == null) {
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
+        } catch (DataIntegrityViolationException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            e.printStackTrace(); // Pour le débogage
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-}
 }
