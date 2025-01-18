@@ -1,6 +1,6 @@
 package com.CoderDot.BloggingServer.service;
 
-// import java.util.List;
+import java.util.List;
 
 import com.CoderDot.BloggingServer.entity.Post;
 
@@ -9,7 +9,7 @@ public interface PostService {
     Post savePost(Post post);
 
 
-    // List<Post> getAllPosts();
+    List<Post> getAllPosts();
 
 
 }

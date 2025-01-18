@@ -1,5 +1,7 @@
 package com.CoderDot.BloggingServer.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.CoderDot.BloggingServer.entity.Post;
 import com.CoderDot.BloggingServer.service.PostService;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
 
 @RestController
 @RequestMapping("/api/posts")
@@ -42,5 +47,15 @@ public class PostController {
             e.printStackTrace(); // Pour le débogage
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Post>> getAllPosts(){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(postService.getAllPosts());
+        }  catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+        
     }
 }
