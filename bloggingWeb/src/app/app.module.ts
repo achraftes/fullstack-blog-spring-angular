@@ -16,6 +16,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule, } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './service/post.service';
+import { ViewAllComponent } from './pages/view-all/view-all.component';
 
 
   
@@ -24,6 +25,7 @@ import { PostService } from './service/post.service';
   declarations: [
     AppComponent,
     CreatePostComponent,
+    ViewAllComponent,
   ],
   imports: [
     BrowserModule,

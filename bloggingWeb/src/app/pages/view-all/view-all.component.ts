@@ -1,32 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PostService } from '../../service/post.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-view-all',
-  imports: [],
   templateUrl: './view-all.component.html',
-  styleUrl: './view-all.component.css'
+  styleUrls: ['./view-all.component.css']
 })
-export class ViewAllComponent {
+export class ViewAllComponent implements OnInit {
 
-  allPosts:any;
+  allPosts: any;
 
-  constructor(private postService:PostService,
-    private snackbar:MatSnackBar
-  ){}
+  constructor(
+    private postService: PostService,
+    private snackbar: MatSnackBar
+  ) {}
 
-  ngOInit(){
+  ngOnInit() {
     this.getAllPosts();
   }
 
-  getAllPosts(){
-    this.postService.getAllPosts().subscribe(res=>{
-       console.log(res);
-       this.allPosts=res;
-    },error=>{
-      this.snackbar.open("Something Went Wrong!!!","ok");
-    })
+  getAllPosts() {
+    this.postService.getAllPosts().subscribe(
+      (res) => {
+        console.log(res);
+        this.allPosts = res;
+      },
+      (error) => {
+        this.snackbar.open("Something Went Wrong!!!", "ok");
+      }
+    );
   }
-
 }
