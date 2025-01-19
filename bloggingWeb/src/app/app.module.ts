@@ -17,6 +17,7 @@ import { RouterModule, } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './service/post.service';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
+import { NgFor } from '@angular/common';
 
 
   
@@ -40,6 +41,7 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
     MatChipsModule,
     AppRoutingModule,
     RouterModule,
+    NgFor,
     HttpClientModule
     
    

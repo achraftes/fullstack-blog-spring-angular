@@ -14,7 +14,9 @@ export class ViewAllComponent implements OnInit {
   constructor(
     private postService: PostService,
     private snackbar: MatSnackBar
-  ) {}
+  ) {
+    console.log('ViewAllComponent initialized');
+  }
 
   ngOnInit() {
     this.getAllPosts();

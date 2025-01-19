@@ -9,7 +9,9 @@ const BASIC_URL ='http://localhost:8080/';
 })
 export class PostService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { 
+    console.log('PostService initialized');
+  }
 
   createNewPost(data:any): Observable<any>{
     return this.http.post(BASIC_URL+ `api/posts`, data);
