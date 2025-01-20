@@ -16,6 +16,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 import { PostService } from './service/post.service';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
+import { NgFor } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatCardModule,
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
@@ -35,7 +38,8 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
     MatButtonModule,
     MatChipsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    NgFor
     
   ],
   providers: [PostService],
