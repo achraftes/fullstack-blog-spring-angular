@@ -13,14 +13,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { CreatePostComponent } from './pages/create-post/create-post.component';
 import { MatChipsModule } from '@angular/material/chips';
-import { RouterModule, } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { PostService } from './service/post.service';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
-import { NgFor } from '@angular/common';
-
-
-  
 
 @NgModule({
   declarations: [
@@ -40,13 +35,8 @@ import { NgFor } from '@angular/common';
     MatButtonModule,
     MatChipsModule,
     AppRoutingModule,
-    RouterModule,
-    NgFor,
-    HttpClientModule
+    RouterModule
     
-   
-
-        
   ],
   providers: [PostService],
   bootstrap: [AppComponent]
