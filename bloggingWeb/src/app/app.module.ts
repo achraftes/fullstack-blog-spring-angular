@@ -16,14 +16,16 @@ import { MatChipsModule } from '@angular/material/chips';
 import { RouterModule } from '@angular/router';
 import { PostService } from './service/post.service';
 import { ViewAllComponent } from './pages/view-all/view-all.component';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { ViewPostComponent } from './pages/view-post/view-post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreatePostComponent,
     ViewAllComponent,
+    ViewPostComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { MatCardModule } from '@angular/material/card';
     MatChipsModule,
     AppRoutingModule,
     RouterModule,
-    NgFor
+    NgFor,
+    CommonModule,
     
   ],
   providers: [PostService],
