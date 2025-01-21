@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.CoderDot.BloggingServer.entity.Post;
 import com.CoderDot.BloggingServer.service.PostService;
+
+import jakarta.persistence.EntityNotFoundException;
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 
@@ -57,5 +61,15 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
         
+    }
+    @GetMapping("/{Id}")
+    public ResponseEntity<Post> getPostById(@PathVariable long Id){
+          try{
+            Post post = postService.getPostById(Id);
+            return ResponseEntity.ok(post);
+          }catch(EntityNotFoundException e){
+             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+          }
+
     }
 }

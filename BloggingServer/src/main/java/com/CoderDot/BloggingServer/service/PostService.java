@@ -12,4 +12,7 @@ public interface PostService {
     List<Post> getAllPosts();
 
 
+    Post getPostById(long Id);
+
+
 }
