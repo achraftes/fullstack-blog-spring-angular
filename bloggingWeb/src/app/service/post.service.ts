@@ -20,4 +20,8 @@ export class PostService {
   getAllPosts(): Observable<any>{
     return this.http.get(BASIC_URL+ `api/posts`);
   }
+
+  getPostById(Id:number): Observable<any>{
+    return this.http.get(BASIC_URL+ `api/posts/${Id}`);
+  }
 }
