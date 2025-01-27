@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router'
 import { CommonModule, NgFor } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommentService } from '../../service/comment.service';
 
 @Component({
   selector: 'app-view-post', 
@@ -34,10 +36,14 @@ export class ViewPostComponent {
   postId: number;
   postData: any;
 
+  commentForm!: FormGroup;
+
   constructor(
     private postService: PostService,
     private activateRoute: ActivatedRoute,
     private matSnackBar: MatSnackBar,
+    private fb: FormBuilder,
+    private commentService: CommentService
   ){
    
     this.postId = this.activateRoute.snapshot.params['id'];
@@ -47,6 +53,22 @@ export class ViewPostComponent {
 
   ngOnInit() {
     this.getPostById();
+
+    this.commentForm = this.fb.group({
+      postedBy:[null, Validators.required],
+      content:[null, Validators.required],
+    })
+  }
+
+  publishComment(){
+    const postedBy = this.commentForm.get('postedBy')?.value;
+    const content = this.commentForm.get('content')?.value;
+
+    this.commentService.createComment(this.postId, postedBy, content).subscribe(res=>{
+      this.matSnackBar.open("Comment Added Successfully","ok")
+    }, error=>{
+      this.matSnackBar.open("Something Went Work!!!","ok")
+    })
   }
 
   
