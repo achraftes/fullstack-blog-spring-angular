@@ -43,6 +43,8 @@ import { ViewPostComponent } from './pages/view-post/view-post.component';
     RouterModule,
     NgFor,
     CommonModule,
+    ReactiveFormsModule
+
     
   ],
   providers: [PostService],

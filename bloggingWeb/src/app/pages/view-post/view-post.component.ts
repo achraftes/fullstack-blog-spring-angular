@@ -11,8 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router'
 import { CommonModule, NgFor } from '@angular/common';
 import { MatChipsModule } from '@angular/material/chips';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommentService } from '../../service/comment.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-view-post', 
@@ -25,7 +27,12 @@ import { CommentService } from '../../service/comment.service';
     MatButtonModule,
     RouterModule, 
     MatChipsModule,
-    NgFor,
+    MatInputModule,
+    NgFor, 
+    RouterModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   templateUrl: './view-post.component.html',
