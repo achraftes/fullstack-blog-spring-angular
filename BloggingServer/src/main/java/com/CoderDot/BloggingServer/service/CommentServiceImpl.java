@@ -1,6 +1,7 @@
 package com.CoderDot.BloggingServer.service;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,9 @@ public class CommentServiceImpl implements CommentService{
         }  
         throw new EntityNotFoundException("Post not found");
 
+    }
+
+    public List<Comment> getCommentsForPostId(Long postId) {
+        return commentRepository.findByPostId(postId); // Appel de la méthode personnalisée
     }
 } 
