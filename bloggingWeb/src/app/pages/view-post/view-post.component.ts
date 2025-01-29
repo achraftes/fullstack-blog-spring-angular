@@ -44,6 +44,7 @@ export class ViewPostComponent {
   postData: any;
 
   commentForm!: FormGroup;
+  comments:any;
 
   constructor(
     private postService: PostService,
@@ -82,12 +83,21 @@ export class ViewPostComponent {
   getPostById(){
     this.postService.getPostById(this.postId).subscribe(res=>{
       this.postData = res;
+      this.getAllCommentsByPost();
       console.log(res);
-    }, error=>{this.matSnackBar.open("Something Went Wrong!!!","ok")
+    }, error=>{
+      this.matSnackBar.open("Something Went Wrong!!!","ok")
 
     })
   }
   
-  
+  getAllCommentsByPost(){
+    this.commentService.getAllCommentsByPost(this.postId).subscribe(res=>{
+      this.comments = res;
+    },error=>{
+     this.matSnackBar.open("Something Went Wrong!!!","ok")
+    
+    })
+  }
 
 }
