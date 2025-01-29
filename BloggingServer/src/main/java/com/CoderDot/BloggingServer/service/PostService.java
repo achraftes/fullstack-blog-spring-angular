@@ -14,5 +14,7 @@ public interface PostService {
 
     Post getPostById(long Id);
 
+    void LikePost(long postId);
+
 
 }

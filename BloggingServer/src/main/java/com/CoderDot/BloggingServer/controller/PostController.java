@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -71,5 +72,15 @@ public class PostController {
              return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
           }
 
+    }
+    @PutMapping("/{postId}/like")
+    public ResponseEntity<?> LikePost(@PathVariable long postId){
+        try{
+            postService.LikePost(postId);
+            return ResponseEntity.ok(new String[]{"Post Liked Successfully"});
+        } catch(EntityNotFoundException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+        
     }
 }
