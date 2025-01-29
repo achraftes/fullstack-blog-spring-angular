@@ -1,0 +1,52 @@
+.card-container {
+    margin: 16px;
+    max-width: 60%;
+    padding-bottom: 30px;
+}
+
+mat-card {
+    padding: 10px;
+}
+
+.example-header-image {
+    background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+    background-size: cover;
+  }
+
+mat-card-footer {
+    margin-left: 20px;
+}
+
+.post-image {
+    width: 100%;  
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 8px; 
+  }
+
+
+
+.search-form {
+  display: flex;
+  justify-content: center; 
+  align-items: center;      
+               
+  
+}
+
+
+.search-input {
+  width: 100%;  
+  max-width: 500px; 
+}
+
+mat-form-field {
+  width: 100%;  
+}
+
+
+button[mat-button] {
+  margin-top: 10px; 
+}
+
+  

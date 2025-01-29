@@ -19,6 +19,8 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
 import { CommonModule, NgFor } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
+import { SearchByNameComponent } from './pages/search-by-name/search-by-name.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ViewPostComponent } from './pages/view-post/view-post.component';
     CreatePostComponent,
     ViewAllComponent,
     ViewPostComponent,
+    SearchByNameComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { ViewPostComponent } from './pages/view-post/view-post.component';
     AppRoutingModule,
     RouterModule,
     NgFor,
+    MatInputModule,
     CommonModule,
     ReactiveFormsModule
 
