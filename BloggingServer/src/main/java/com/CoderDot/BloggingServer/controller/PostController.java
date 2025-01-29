@@ -83,4 +83,12 @@ public class PostController {
         }
         
     }
+    @GetMapping("/search/{name}")
+    public ResponseEntity<?> searchByName(@PathVariable String name){
+         try{
+            return ResponseEntity.status(HttpStatus.OK).body(postService.searchByName(name));
+         } catch(Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+         }
+    }
 }
