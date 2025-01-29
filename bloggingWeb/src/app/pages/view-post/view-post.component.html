@@ -20,7 +20,7 @@
     </mat-chip-set>
 
     <mat-card-actions class="actions">
-      <button mat-raised-button color="primary" class="action-button">
+      <button mat-raised-button color="primary" class="action-button" (click)="likePost()">
         {{ postData?.likeCount }} <mat-icon>favorite</mat-icon>
       </button>
       <button mat-raised-button color="primary" class="action-button">
