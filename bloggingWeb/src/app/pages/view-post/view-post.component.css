@@ -1,39 +1,119 @@
-.card-container {
-    margin: 16px;
-    max-width: 40%;
-    padding-bottom: 30px;
-}
 
-mat-card {
-    padding: 10px;
-}
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+.example-header-image{
+    background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
     background-size: cover;
-}
+  }
 
-mat-card-content {
-    margin-top: 30px;
-}
 
-mat-card-footer {
-    margin-left: 20px;
-}
-
-.img {
-    
-width: 100%; 
-height: auto; 
-object-fit: cover; 
-border-radius: 1px;
-}
-
-.comment-card{
-    margin: 20px ;
-    border-radius: 2px;
-}
-
-mat-form-field {
+  .card-container {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+  
+  .main-post {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-image {
+    max-height: 500px;
+    object-fit: cover;
+    margin: 1rem 0;
+    border-radius: 4px;
+  }
+  
+  .tag-container {
+    margin: 1rem 0;
+  }
+  
+  .tag {
+    margin-right: 0.5rem !important;
+    background-color: #e0e0e0 !important;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .comment-section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .comment-form {
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .form-title {
+    color: #3f51b5;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  
+  .comments-list {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 1rem;
+  }
+  
+  .comment-card {
+    margin: 1rem 0;
+    padding: 1rem;
+    transition: transform 0.2s ease;
+    background-color: #fff;
+    border: 1px solid #eee;
+  }
+  
+  .comment-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  .comment-avatar {
+    background-image: url('https://randomuser.me/api/portraits/men/33.jpg');
+    background-size: cover;
+  }
+  
+  mat-form-field {
     width: 100%;
-}
+    margin-bottom: 1rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .card-container {
+      padding: 0 0.5rem;
+    }
+  
+    .comment-section {
+      grid-template-columns: 1fr;
+    }
+  
+    .comments-list {
+      max-height: none;
+    }
+    
+    .post-image {
+      max-height: 300px;
+    }
+  }

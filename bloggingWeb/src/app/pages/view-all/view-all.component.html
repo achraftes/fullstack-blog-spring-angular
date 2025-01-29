@@ -9,7 +9,13 @@
 
     <mat-grid-list cols="5">
         <mat-grid-tile>
-            <img mat-card-image [src]="item.img" class="post-img" alt="mat-card-image" />
+            <img 
+              mat-card-image 
+              [src]="item.img" 
+              class="post-image" 
+              alt="card-image"
+             loading="lazy" >
+/>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3" [rowspan]="1">
             <mat-card-content>
