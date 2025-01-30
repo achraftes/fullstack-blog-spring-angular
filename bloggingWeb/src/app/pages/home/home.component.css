@@ -1,0 +1,35 @@
+.movie-section {
+    max-width: 2200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section-title {
+    color: #3564e4;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+    gap: 30px;
+}
+
+.movie-card {
+    background: #ebeaea;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}

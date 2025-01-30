@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    
+    <style>
+
+     
+        .movie-section {
+            max-width: 2200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            color: #3564e4;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 3fr));
+            gap: 30px;
+        }
+
+        .movie-card {
+            background: #ebeaea;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <main class="movie-section">
+        <h2 class="section-title">Latest Movies</h2>
+        <div class="movies-grid">
+            <div class="movie-card">
+                <img src="images/Le-nouveau-.jpg" alt="THE EXPANSE" class="movie-image">
+                
+            </div>
+            <div class="movie-card">
+                <img src="images/from.jpeg" alt="RINGS" class="movie-image">
+                
+            </div>
+            <div class="movie-card">
+                <img src="images/carry-on-2024.jpeg" alt="POWER" class="movie-image">
+                
+            </div>
+            <div class="movie-card">
+                <img src="images/affiche-Babylone-.webp" alt="POWER" class="movie-image">
+                
+            </div>
+            <div class="movie-card">
+                <img src="images/c8c4b651c.avif" alt="POWER" class="movie-image">
+                
+            </div>
+            
+        </div>
+    </main>
+
+
+</body>
+</html>

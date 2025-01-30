@@ -13,5 +13,5 @@
   
   button[mat-raised-button] {
     margin-right: 10px; 
-    border-radius: 2px;/* Ajoute un espacement entre les boutons */
+    border-radius: 2px;
 }
