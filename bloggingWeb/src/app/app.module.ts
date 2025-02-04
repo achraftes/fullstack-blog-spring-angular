@@ -21,6 +21,8 @@ import { MatCardModule } from '@angular/material/card';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
 import { SearchByNameComponent } from './pages/search-by-name/search-by-name.component';
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,9 @@ import { MatInputModule } from '@angular/material/input';
     ViewAllComponent,
     ViewPostComponent,
     SearchByNameComponent,
+    LoginComponent,
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import { MatInputModule } from '@angular/material/input';
     NgFor,
     MatInputModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
 
     
   ],

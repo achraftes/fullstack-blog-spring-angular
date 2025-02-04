@@ -4,6 +4,8 @@ import { ViewAllComponent } from './pages/view-all/view-all.component';
 import { ViewPostComponent } from './pages/view-post/view-post.component';
 import { SearchByNameComponent } from './pages/search-by-name/search-by-name.component';
 import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
   { path: '',
@@ -23,5 +25,13 @@ export const routes: Routes = [
   
   { path: 'search-by-name', 
     component: SearchByNameComponent },
-  
+
+    { path: 'login', 
+      component: LoginComponent },
+
+  { path: 'register', 
+    component: RegisterComponent },
+
+    { path: '', redirectTo: 
+      '/login', pathMatch: 'full' }
 ];
