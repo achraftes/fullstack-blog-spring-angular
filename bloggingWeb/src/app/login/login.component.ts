@@ -22,6 +22,8 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
+
+    console.log('Login attempt:', this.user);
     this.authService.login(this.user).subscribe(
       response => {
         console.log('Login successful', response);
