@@ -17,7 +17,7 @@ import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-create-post',
-  standalone: true, 
+ 
   imports: [
     MatFormFieldModule,
     MatInputModule,

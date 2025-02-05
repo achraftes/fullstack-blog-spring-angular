@@ -11,7 +11,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
-  standalone: true, 
+  
   imports: [
     RouterModule, 
     MatToolbarModule,
