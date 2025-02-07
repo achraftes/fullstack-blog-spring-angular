@@ -1,3 +1,23 @@
+.container {
+  
+    padding: 1rem;
+  }
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .page-header h2 {
+    font-size: 2em;
+    color: #333;
+  }
+  
+  .page-header p {
+    color: #777;
+    font-size: 1.1em;
+  }
+  
+
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -157,3 +177,5 @@
       width: 100%;
     }
   }
+
+
