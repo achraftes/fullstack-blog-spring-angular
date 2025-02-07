@@ -86,7 +86,7 @@ export class CreatePostComponent {
 
       this.postService.createNewPost(data).subscribe((res)=>{
         this.snackBar.open("Post Created Successfully !!!", "ok");
-          this.router.navigateByUrl("/");
+          this.router.navigateByUrl("/view-all");
       }, (error)=>{
         this.snackBar.open("Something Went Wrong!!!","ok");
 
