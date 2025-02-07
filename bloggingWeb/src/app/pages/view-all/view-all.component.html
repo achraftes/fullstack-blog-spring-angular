@@ -1,32 +1,53 @@
-<div class="card-container" *ngFor="let item of allPosts">
+<div class="posts-grid">
+    <div class="post-card" *ngFor="let item of allPosts">
+      <mat-card class="h-100">
+        <!-- Card Header -->
+        <div class="card-header-custom">
+          <div class="author-info">
+            <div class="example-header-image"></div>
+            <div class="author-details">
+              <h3 class="post-title">{{item.name}}</h3>
+              <p class="post-meta">
+                <span class="author-name">{{item.postedBy}}</span>
+                <span class="post-date">{{item.date | date:'MMM d, y'}}</span>
+              </p>
+            </div>
+          </div>
+        </div>
 
-<mat-card>
-    <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{item.name}}</mat-card-title>
-        <mat-card-subtitle>Posted by: {{item.postedBy}} | Posted On : {{item.date | date:'medium'}}</mat-card-subtitle>
-    </mat-card-header>
+        <!-- Card Content -->
+        <div class="card-content-wrapper">
+          <div class="post-image-container">
+            <img [src]="item.img" [alt]="item.name" class="post-image">
+          </div>
+          
+          <mat-card-content class="post-content">
+            <p class="content-text">{{item.content}}</p>
+          </mat-card-content>
+        </div>
 
-    <mat-grid-list cols="5">
-        <mat-grid-tile [colspan]="2" [rowspan]="1">
-            <img mat-card-image [src]="item.img" class="post-image" alt="card-image" />
-              
-              
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
-            <mat-card-content>
-                {{item.content}}
-            </mat-card-content>
-        </mat-grid-tile>
-    </mat-grid-list>
-
-    <hr>
-    <mat-card-actions>
-       <button mat-raised-button color="primary" >{{item.likeCount}} <mat-icon>favorite</mat-icon></button>
-       <button mat-raised-button color="primary" style="margin-left: 5px;">{{item.viewCount}} <mat-icon>remove_red_eye</mat-icon> </button>
-       <button mat-raised-button color="primary" style="margin-left: 5px;"  routerLink="/view-post/{{item.id}}"  >View Post</button>
-    </mat-card-actions>
-</mat-card>
-
-
-</div>
+        <!-- Card Actions -->
+        <mat-card-actions class="card-actions">
+          <div class="action-buttons">
+            <button mat-button class="interaction-btn">
+              <mat-icon [class.liked]="item.liked">favorite</mat-icon>
+              <span>{{item.likeCount}}</span>
+            </button>
+            
+            <button mat-button class="interaction-btn">
+              <mat-icon>remove_red_eye</mat-icon>
+              <span>{{item.viewCount}}</span>
+            </button>
+          </div>
+          
+          <button 
+            mat-flat-button 
+            color="primary" 
+            class="view-post-btn" 
+            routerLink="/view-post/{{item.id}}">
+            Read More
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
