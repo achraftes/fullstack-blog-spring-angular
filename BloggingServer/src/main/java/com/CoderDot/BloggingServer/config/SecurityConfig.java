@@ -26,31 +26,32 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // ✅ Appliquer CORS
-            .csrf(csrf -> csrf.disable()) // ✅ Désactiver CSRF pour les API REST
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // ✅ Éviter la gestion de session
+            .cors(cors -> cors.configurationSource(corsConfigurationSource())) 
+            .csrf(csrf -> csrf.disable()) 
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) 
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/api/posts/**","/api/comments/**").permitAll() // ✅ Permettre les requêtes publiques
+                .requestMatchers("/api/auth**", "/api/posts/**","/api/comments/**").permitAll() 
                 .anyRequest().authenticated()
+                
             )
             .exceptionHandling(exception -> exception
-                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)) // ✅ Éviter la redirection 302
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)) 
             )
-            .httpBasic(withDefaults()) // ✅ Authentification sans redirection
-            .formLogin(form -> form.disable()) // ❌ Désactiver les redirections de login
-            .logout(logout -> logout.disable()); // ❌ Désactiver les redirections de logout
+            .httpBasic(withDefaults()) 
+            .formLogin(form -> form.disable()) 
+            .logout(logout -> logout.disable()); 
 
         return http.build();
     }
 
-    // ✅ Configuration CORS corrigée
+   
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("http://localhost:4200")); // ✅ Autoriser le frontend Angular
+        config.setAllowedOrigins(List.of("http://localhost:4200")); 
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(true); // ✅ Permettre les cookies (authentification)
+        config.setAllowCredentials(true); 
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
