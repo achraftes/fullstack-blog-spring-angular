@@ -1,6 +1,5 @@
 package com.CoderDot.BloggingServer.service;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -15,32 +14,30 @@ import com.CoderDot.BloggingServer.repository.PostRepository;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
-public class CommentServiceImpl implements CommentService{
-   
+public class CommentServiceImpl implements CommentService {
+
     @Autowired
     private CommentRepository commentRepository;
 
     @Autowired
     private PostRepository postRepository;
 
-    public Comment createComment(long postId, String postedBy,  String content){
-        Optional<Post> optionalPost =postRepository.findById(postId);
+    public Comment createComment(long postId, String postedBy, String content) {
+        Optional<Post> optionalPost = postRepository.findById(postId);
 
         if (optionalPost.isPresent()) {
-             Comment comment =new Comment();
+            Comment comment = new Comment();
+            comment.setPost(optionalPost.get());
+            comment.setContent(content);
+            comment.setPostedBy(postedBy);
+            comment.setCreatedAt(new java.sql.Date(System.currentTimeMillis()));
 
-             comment.setPost(optionalPost.get());
-             comment.setContent(content);
-             comment.setPostedBy(postedBy);
-             comment.setCreatedAt(new java.sql.Date(System.currentTimeMillis()));
-
-             return commentRepository.save(comment);
-        }  
+            return commentRepository.save(comment);
+        }
         throw new EntityNotFoundException("Post not found");
-
     }
 
     public List<Comment> getCommentsForPostId(Long postId) {
-        return commentRepository.findByPostId(postId); // Appel de la méthode personnalisée
+        return commentRepository.findByPostId(postId);
     }
-} 
+}
