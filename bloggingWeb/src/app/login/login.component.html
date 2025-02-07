@@ -18,15 +18,15 @@
               <form (ngSubmit)="onLogin()" #loginForm="ngForm">
                 <div class="form-floating mb-3">
                   <input 
-                    type="email" 
+                    type=" username" 
                     class="form-control" 
-                    id="email" 
-                    placeholder="name@example.com"
+                    id=" username" 
+                    placeholder=" username"
                     [(ngModel)]="user.username"
-                    name="email"
+                    name="username"
                     required
-                    email>
-                  <label for="email">Email address</label>
+                    >
+                    <label for="username">Username</label>
                 </div>
 
                 <div class="form-floating mb-4">

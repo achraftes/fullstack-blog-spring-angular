@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
    
     FormsModule,
@@ -22,21 +23,24 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
-
     console.log('Login attempt:', this.user);
     this.authService.login(this.user).subscribe(
-      response => {
+      (response: any) => {
         console.log('Login successful', response);
-        
-        // Stocker l'état de connexion (optionnel, peut être stocké dans un service ou localStorage)
-        localStorage.setItem('isLoggedIn', 'true');
-
-        // Rediriger vers une des pages accessibles après login
-        this.router.navigate(['/view-all']);
+  
+        // Vérifier si un token est reçu et le stocker
+        if (response.token) {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('isLoggedIn', 'true');
+          this.router.navigate(['/view-all']);
+        } else {
+          console.error('No token received!');
+        }
       },
       error => {
         console.error('Login failed', error);
       }
     );
   }
+  
 }
