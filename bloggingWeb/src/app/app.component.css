@@ -15,3 +15,7 @@
     margin-right: 10px; 
     border-radius: 2px;
 }
+.mat-toolbar {
+  background-color: #1976d2; /* Set the toolbar background to blue */
+  color: #ffffff; /* Light text color */
+}

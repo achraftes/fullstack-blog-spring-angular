@@ -29,4 +29,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 })
 export class AppComponent {
   title = 'bloggingWeb';
+
+  isDarkTheme = false;
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+    document.body.classList.toggle('light-theme', !this.isDarkTheme);
+  }
 }
