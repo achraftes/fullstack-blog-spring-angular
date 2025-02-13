@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatSnackBarModule } from '@angular/material/snack-bar'; 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
@@ -22,18 +23,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatInputModule, 
     MatButtonModule, 
-    MatSnackBarModule 
+    MatSnackBarModule ,
+    MatSlideToggleModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'bloggingWeb';
-
-  isDarkTheme = false;
-
-  toggleTheme() {
-    this.isDarkTheme = !this.isDarkTheme;
-    document.body.classList.toggle('light-theme', !this.isDarkTheme);
-  }
-}
+ 
+} 

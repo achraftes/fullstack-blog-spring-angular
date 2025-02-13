@@ -54,7 +54,7 @@ import { RegisterComponent } from './register/register.component';
     CommonModule,
     ReactiveFormsModule,
     CommonModule,
-    
+    MatSlideToggleModule
 
     
   ],
