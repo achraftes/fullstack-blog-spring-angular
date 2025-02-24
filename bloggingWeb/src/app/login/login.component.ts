@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -9,7 +8,6 @@ import { CommonModule } from '@angular/common';
   selector: 'app-login',
   standalone: true,
   imports: [
-   
     FormsModule,
     CommonModule
   ],
@@ -17,30 +15,26 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-
   user = { username: '', password: '' };
-
+  
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin() {
-    console.log('Login attempt:', this.user);
+    console.log('Tentative de connexion:', this.user);
     this.authService.login(this.user).subscribe(
       (response: any) => {
-        console.log('Login successful', response);
-  
-        // Vérifier si un token est reçu et le stocker
+        console.log('Connexion réussie', response);
         if (response.token) {
           localStorage.setItem('token', response.token);
           localStorage.setItem('isLoggedIn', 'true');
           this.router.navigate(['/view-all']);
         } else {
-          console.error('No token received!');
+          console.error('Pas de token reçu!');
         }
       },
       error => {
-        console.error('Login failed', error);
+        console.error('Échec de la connexion', error);
       }
     );
   }
-  
 }
