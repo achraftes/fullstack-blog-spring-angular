@@ -38,7 +38,7 @@ public class AuthController {
 
         if (userDetails != null && new BCryptPasswordEncoder().matches(user.getPassword(), userDetails.getPassword())) {
             String token = jwtUtils.generateToken(userDetails.getUsername());
-            return ResponseEntity.ok("Bearer " + token); // Return the JWT token
+            return ResponseEntity.ok("Bearer " + token); 
         }
 
         return ResponseEntity.status(401).body("Invalid credentials");
